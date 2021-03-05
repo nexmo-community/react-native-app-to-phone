@@ -1,0 +1,6 @@
+module Pods_RNAppToPhone_RNAppToPhoneTests {
+  umbrella header "Pods-RNAppToPhone-RNAppToPhoneTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
