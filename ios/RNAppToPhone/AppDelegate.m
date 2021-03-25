@@ -6,7 +6,6 @@
 #import <React/RCTDevLoadingView.h>
 
 #import <NexmoClient/NexmoClient.h>
-#import <AVFoundation/AVFoundation.h>
 
 #import "ClientManager.h"
 #import "EventEmitter.h"
@@ -37,11 +36,6 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-  
-  [AVAudioSession.sharedInstance requestRecordPermission:^(BOOL granted) {
-    NSLog(@"Allow microphone use. Response: %d", granted);
-  }];
-  
   [ClientManager.shared setEventEmitter:[bridge moduleForClass:[EventEmitter class]]];
   [ClientManager.shared setupClient];
   

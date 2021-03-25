@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {request, PERMISSIONS} from 'react-native-permissions';
 import {
   SafeAreaView,
   StyleSheet,
@@ -6,7 +7,8 @@ import {
   Text,
   NativeEventEmitter,
   NativeModules,
-  Pressable,
+  Pressable, 
+  Platform
 } from 'react-native';
 
 const eventEmitter = new NativeEventEmitter(NativeModules.EventEmitter);
@@ -53,11 +55,18 @@ class App extends Component<{}, { status: string, callState: string, callButton:
       status: "Unknown",
       callState: "Idle",
       callButton: "Login",
-      callAction: () => ClientManager.login("ALICE_JWT")
+      callAction: () => ClientManager.login("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTY2ODk1NzEsImp0aSI6ImNmYzZmOWYwLThkODYtMTFlYi1hMDYyLTZkNzM3YzZiMDE0NiIsImV4cCI6MTYxNjcxMTE3MCwiYWNsIjp7InBhdGhzIjp7Ii8qL3VzZXJzLyoqIjp7fSwiLyovY29udmVyc2F0aW9ucy8qKiI6e30sIi8qL3Nlc3Npb25zLyoqIjp7fSwiLyovZGV2aWNlcy8qKiI6e30sIi8qL2ltYWdlLyoqIjp7fSwiLyovbWVkaWEvKioiOnt9LCIvKi9hcHBsaWNhdGlvbnMvKioiOnt9LCIvKi9wdXNoLyoqIjp7fSwiLyova25vY2tpbmcvKioiOnt9LCIvKi9sZWdzLyoqIjp7fX19LCJzdWIiOiJBbGljZSIsImFwcGxpY2F0aW9uX2lkIjoiOThmMjFmNDUtZjhhYy00MTA1LTk3MDYtZTliOTA4Y2VhMjEzIn0.e25uxe0RX0_2QKjH9biJoOnkFPSsXkCFr3eUIXpFOJBcwgZIk3-Z6IAoJK5rz_gC_s3goq0k03EdLefesiy82T9-pVlcQsbtI_a11B0S7qKk-mbNU8nEYpsGS5TWZMBcX7iMQtsYQL3TmQcoZacF3n0VczPLDpMs8ZU5sKCiAPlTcFwce56GRj9rw7SC7KZGRn9IyVUEZgbHWSK1UNhUS0nxmGHhjeBtBDDKjt0X2Q53CWw6tl0PfzVtzeLOQn1Xa3d3B7xy6ZXCGYSJ6hK8VmDx_MO2RguHlRxRamsKjgECUjPjDM2CrFjLa3E7gJ8zwxALMWA_4YrncXofzXvNpA")
     };
   }
 
   componentDidMount() {
+
+    if (Platform.OS === 'ios') {
+      request(PERMISSIONS.IOS.MICROPHONE);
+    } else if (Platform.OS === 'android') {
+      request(PERMISSIONS.ANDROID.RECORD_AUDIO);
+    }
+
     eventEmitter.addListener('onStatusChange', (data) => {
       const status = data.status;
       this.setState({ status: status });
