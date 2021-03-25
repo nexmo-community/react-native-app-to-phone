@@ -25,6 +25,10 @@ In a new terminal window navigate to your project window and run the iOS project
 
 `npx react-native run-ios`
 
+Or the android project with:
+
+`npx react-native run-android`
+
 ## Getting Help
 
 We love to hear from you so if you have questions, comments or find a bug in the project, let us know! You can either:
