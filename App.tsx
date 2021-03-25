@@ -1,13 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React, { Component } from 'react';
 import {
   SafeAreaView,
@@ -16,12 +6,15 @@ import {
   Text,
   NativeEventEmitter,
   NativeModules,
-  Pressable
+  Pressable,
 } from 'react-native';
 
 const eventEmitter = new NativeEventEmitter(NativeModules.EventEmitter);
+const { ClientManager } = NativeModules;
+
 const styles = StyleSheet.create({
   status: {
+    padding: 20,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -39,8 +32,7 @@ const styles = StyleSheet.create({
     height: 40,
     width: 200,
     justifyContent: 'center',
-    alignItems: 'center',
-    elevation: 5,
+    alignItems: 'center'
   },
   buttonText: {
     fontSize: 16,
@@ -60,25 +52,32 @@ class App extends Component<{}, { status: string, callState: string, callButton:
     this.state = {
       status: "Unknown",
       callState: "Idle",
-      callButton: "Call",
-      callAction: () => NativeModules.ClientManager.makeCall()
+      callButton: "Login",
+      callAction: () => ClientManager.login("ALICE_JWT")
     };
   }
 
   componentDidMount() {
     eventEmitter.addListener('onStatusChange', (data) => {
-      this.setState({ status: data.status });
+      const status = data.status;
+      this.setState({ status: status });
+
+      if (status === 'connected' || status === 'Connected') {
+        this.setState({ callButton: "Call"});
+        this.setState({ callAction: () => ClientManager.makeCall()});
+      }
     });
+
     eventEmitter.addListener('onCallStateChange', (data) => {
       const state = data.state;
       this.setState({ callState: state });
 
       if (state == 'On Call') {
         this.setState({ callButton: "End Call"});
-        this.setState({ callAction: () => NativeModules.ClientManager.endCall()});
+        this.setState({ callAction: () => ClientManager.endCall()});
       } else if (state == 'Idle') {
         this.setState({ callButton: "Call"});
-        this.setState({ callAction: () => NativeModules.ClientManager.makeCall()});
+        this.setState({ callAction: () => ClientManager.makeCall()});
       }
     });
   }

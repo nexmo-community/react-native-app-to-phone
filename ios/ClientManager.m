@@ -22,7 +22,10 @@ RCT_EXPORT_MODULE();
 - (void)setupClient {
   self.client = NXMClient.shared;
   [self.client setDelegate:self];
-  [self.client loginWithAuthToken:@"ALICE_JWT"];
+}
+
+RCT_EXPORT_METHOD(login:(NSString *)jwt) {
+  [ClientManager.shared.client loginWithAuthToken:jwt];
 }
 
 RCT_EXPORT_METHOD(makeCall) {

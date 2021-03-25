@@ -1,5 +1,12 @@
 package com.rnapptophone;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {
@@ -13,3 +20,4 @@ public class MainActivity extends ReactActivity {
     return "RNAppToPhone";
   }
 }
+
