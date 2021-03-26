@@ -1,7 +1,6 @@
 package com.rnapptophone;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +16,7 @@ import com.nexmo.client.NexmoClient;
 import com.nexmo.client.request_listener.NexmoApiError;
 import com.nexmo.client.request_listener.NexmoRequestListener;
 
-public class ClientManager extends ReactContextBaseJavaModule  {
+public class ClientManager extends ReactContextBaseJavaModule {
     NexmoClient client;
     NexmoCall call;
     EventEmitter eventEmitter;
@@ -25,7 +24,7 @@ public class ClientManager extends ReactContextBaseJavaModule  {
     ClientManager(ReactApplicationContext context) {
         super(context);
         client = new NexmoClient.Builder().build(context);
-        eventEmitter =  new EventEmitter(context);
+        eventEmitter = new EventEmitter(context);
         client.setConnectionListener((connectionStatus, connectionStatusReason) ->
                 this.sendEvent("onStatusChange", "status", connectionStatus.toString().toLowerCase()));
     }

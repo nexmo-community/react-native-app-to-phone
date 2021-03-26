@@ -1,7 +1,5 @@
 package com.rnapptophone;
 
-import android.util.Log;
-
 import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -9,7 +7,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
-public class EventEmitter extends ReactContextBaseJavaModule  {
+public class EventEmitter extends ReactContextBaseJavaModule {
     ReactApplicationContext context;
 
     EventEmitter(ReactApplicationContext context) {
