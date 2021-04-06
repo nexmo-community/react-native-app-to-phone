@@ -13,9 +13,9 @@ Clone the project to your computer, using the terminal:
 
 `git clone git@github.com:nexmo-community/react-native-app-to-phone.git`
 
-Install the dependencies with [Yarn](https://yarnpkg.com):
+Install the dependencies with [npm](http://npmjs.com):
 
-`yarn install`
+`npm install`
 
 Start the ReactNative package server:
 
