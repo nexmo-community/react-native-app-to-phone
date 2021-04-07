@@ -46,10 +46,10 @@
 		00E356EE1AD99517003FC87E /* RNAppToPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNAppToPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* RNAppToPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNAppToPhoneTests.m; sourceTree = "<group>"; };
-		128C1EAE25F10F800035CF1C /* EventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventEmitter.h; sourceTree = "<group>"; };
-		128C1EAF25F10F800035CF1C /* EventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventEmitter.m; sourceTree = "<group>"; };
-		128C1EB525F10F8F0035CF1C /* ClientManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientManager.h; sourceTree = "<group>"; };
-		128C1EB625F10F8F0035CF1C /* ClientManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientManager.m; sourceTree = "<group>"; };
+		128C1EAE25F10F800035CF1C /* EventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EventEmitter.h; path = RNAppToPhone/EventEmitter.h; sourceTree = "<group>"; };
+		128C1EAF25F10F800035CF1C /* EventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EventEmitter.m; path = RNAppToPhone/EventEmitter.m; sourceTree = "<group>"; };
+		128C1EB525F10F8F0035CF1C /* ClientManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ClientManager.h; path = RNAppToPhone/ClientManager.h; sourceTree = "<group>"; };
+		128C1EB625F10F8F0035CF1C /* ClientManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ClientManager.m; path = RNAppToPhone/ClientManager.m; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* RNAppToPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNAppToPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = RNAppToPhone/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = RNAppToPhone/AppDelegate.m; sourceTree = "<group>"; };

@@ -48,13 +48,13 @@ const styles = StyleSheet.create({
   }
 })
 
-class App extends Component<{}, { status: string, callState: string, callButton: string, callAction: any }> {
+class App extends Component<{}, { status: string, callState: string, button: string, callAction: any }> {
   constructor(props: any) {
     super(props);
     this.state = {
       status: "Unknown",
       callState: "Idle",
-      callButton: "Login",
+      button: "Login",
       callAction: () => ClientManager.login("ALICE_JWT")
     };
   }
@@ -72,7 +72,7 @@ class App extends Component<{}, { status: string, callState: string, callButton:
       this.setState({ status: status });
 
       if (status === 'connected' || status === 'Connected') {
-        this.setState({ callButton: "Call"});
+        this.setState({ button: "Call"});
         this.setState({ callAction: () => ClientManager.makeCall()});
       }
     });
@@ -82,10 +82,10 @@ class App extends Component<{}, { status: string, callState: string, callButton:
       this.setState({ callState: state });
 
       if (state == 'On Call') {
-        this.setState({ callButton: "End Call"});
+        this.setState({ button: "End Call"});
         this.setState({ callAction: () => ClientManager.endCall()});
       } else if (state == 'Idle') {
-        this.setState({ callButton: "Call"});
+        this.setState({ button: "Call"});
         this.setState({ callAction: () => ClientManager.makeCall()});
       }
     });
@@ -111,7 +111,7 @@ class App extends Component<{}, { status: string, callState: string, callButton:
             <Pressable
               style={styles.button}
               onPress={this.state.callAction}>
-              <Text style={styles.buttonText}>{this.state.callButton}</Text>
+              <Text style={styles.buttonText}>{this.state.button}</Text>
             </Pressable>
           </View>
         </View>
