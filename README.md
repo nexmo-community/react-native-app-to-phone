@@ -2,6 +2,8 @@
 
 <img src="https://developer.nexmo.com/assets/images/Vonage_Nexmo.svg" height="48px" alt="Nexmo is now known as Vonage" />
 
+## ❗❗❗ **This repo is now deprecated, view the new version on the [Vonage Community GitHub](https://github.com/Vonage-Community/sample-voice-react-native-app). Check the [Vonage Developer Blog](https://developer.vonage.com/en/blog) for more blog posts and tutorials. For more sample Vonage projects, check the [Vonage Community GitHub repo](https://github.com/Vonage-Community).**
+
 This is a ReactNative project that uses the [Client SDK](https://developer.nexmo.com/client-sdk/overview) to call a phone number. 
 
 ## Welcome to Vonage
